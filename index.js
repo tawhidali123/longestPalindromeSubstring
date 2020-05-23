@@ -11,20 +11,28 @@
 // Output: "bb"
 
 function longest(arr){
-  let temp = ''
-  let constant = ''
-  let subStart = 0
-  let subEnd = 0
-  let holder =[]
+  let p1 = 0
+  let p2 = arr.length - 1
+  let holder = []
 
-  for(i=0; i < arr.length; i++){
-    if(i == 0) temp = arr[i]
-    constant = `${temp}${arr[i]}`
-    if(constant === constant.reverse()){
-      holder.push(constant)
-    }
+
+  while(p2 !== 0){
+    if(arr[p1] === arr[p2]){
+      // check palindrome
+      let counter = (p2 - p1)
+      let check = []
+      for(val = counter; val >= 0; val--){
+        check.push(arr[val])
+      }
+      console.log(check)
+      if(check === check.reverse()){
+        return check
+      }
+    } 
+    
+    p2 --
+    
   }
-  console.log(subStart,subEnd)
 }
 
 longest("babad")
